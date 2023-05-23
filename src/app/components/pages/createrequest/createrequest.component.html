@@ -1,0 +1,49 @@
+<app-header></app-header>
+<main class="white">
+  <div class=" ms-3">
+    <div class="row">
+      <div class="container col-5 col-lg-4">
+        <div class="d-flex justify-content-start pt-4">
+          <h3 class="fw-bold ms-3">Requests</h3>
+        </div>
+        <form style="margin-top: 80px" [formGroup]="petitionForm">
+          <h2 class="text-center">Sign Up</h2>
+          <!-- <div class="form-group col-9 mx-auto p-2">
+            <label for="images" class="p-2">Images</label>
+            <input type="file" formControlName="images" class="form-control-file" id="images" multiple>
+          </div> -->
+          <!-- <div class="form-group col-9 mx-auto p-2">
+            <label for="category" class="p-2">Category</label>
+            <input type="text" formControlName="categoryName" class="form-control text-dark rounded-4" id="category" placeholder="Enter Category">
+          </div> -->
+          <!-- <div class="form-group col-9 mx-auto p-2">
+            <label for="route" class="p-2">Route Code</label>
+            <input type="text" formControlName="routeCode" class="form-control text-dark rounded-4" id="route" placeholder="Enter Route Code">
+          </div> -->
+          <!-- <div class="form-group col-9 mx-auto p-2">
+            <label for="station" class="p-2">Station Code</label>
+            <input type="text" formControlName="stationCode" class="form-control text-dark rounded-4" id="station" placeholder="Enter Station Code">
+          </div> -->
+          <div class="form-group col-9 mx-auto p-2">
+            <label for="description" class="p-2">Description</label>
+            <textarea formControlName="description" class="form-control text-dark rounded-4" id="description" rows="4" placeholder="Enter Description"></textarea>
+          </div>
+          <div class="p-3 text-center col-9 mx-auto">
+            <button type="submit" class="btn btn-info btn-lg rounded-4 w-75" (click)="save()">Sign Up</button>
+          </div>
+          <p class="text-center p-4 pb-0"> OR </p>
+          <div class="signup-link text-center">
+            Have an account? <a href="#" [routerLink]="['/sign_in']" class="text-decoration-none">Sign In</a>
+          </div>
+        </form>
+        
+        
+      </div>
+      <!--map-->
+      <div class="col-7 col-lg-8 position-relative" id="map" style="min-height: 700px;">
+        <!-- <img src="" class="img-fluid"> -->
+      </div>
+    </div>
+  </div>
+</main>
+<app-foor></app-foor>
