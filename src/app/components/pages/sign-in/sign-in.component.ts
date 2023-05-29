@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-sign-in',
@@ -29,6 +30,8 @@ export class SignInComponent {
         this.router.navigateByUrl('/main_page');
         const token = resultData.token;
         localStorage.setItem('token', token);
+  
+        
 
     })
    }

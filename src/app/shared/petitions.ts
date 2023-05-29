@@ -1,14 +1,20 @@
 export interface Petition {
-  petitionId?: number;
+  petitionId: number;
   creatorEmail?: string;
   creatorName?: string;
   creatorSurname?: string;
   description: string;
+  title: string;
   likesNumber: number;
   likedByThisUser: boolean;
   category: string|null;
   station: string | null;
   route: string | null;
-  latitude: number | null;
-  longitude: number | null;
+  latitude: number ;
+  longitude: number;
+  images: File[];
+  status: string;
+  createdAt: string ;
+  address: string;
   }
+

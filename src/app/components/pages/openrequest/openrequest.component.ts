@@ -36,7 +36,7 @@ export class OpenrequestComponent implements OnInit {
       Authorization: 'Bearer ' + localStorage.getItem('token')
     });
 
-    this.http.get<Petition>('http://localhost:8080/petitions/findAll?page=0&size=10/${this.petitionId}',{headers}).subscribe(
+    this.http.get<Petition>('http://localhost:8080/petitions/${this.petitionId}',{headers}).subscribe(
       (response: Petition) =>{
         this.petitions = response;
       },

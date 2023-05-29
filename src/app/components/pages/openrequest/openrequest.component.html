@@ -7,15 +7,15 @@
           <h3 class="fw-bold ms-3">Requets</h3>
         </div>
         <div *ngIf="petitions">
-          <div *ngfor="let petition of petitions" class="card border border-end border-light-subtle rounded-5 bg-transparent my-4 p-2" style="width:78%">
+          <div class="card border border-end border-light-subtle rounded-5 bg-transparent my-4 p-2" style="width:78%">
             <div class="card-body " >
-              <h4 class="card-title">{{petition.petitionId}}</h4>
-              <h6 class="card-subtitle my-3 text-body-dark">{{petition.creatorEmail}}</h6>
+              <h4 class="card-title">{{petitions.petitionId}}</h4>
+              <h6 class="card-subtitle my-3 text-body-dark">{{petitions.creatorEmail}}</h6>
               <div class="d-flex my-3 ">
-                <p class="card-subtitle fs-6  text-body-dark">{{petition.description}}</p>
-                <p class="card-subtitle fs-6 ps-5 text-body-secondary">{{petition.description}}</p>
+                <p class="card-subtitle fs-6  text-body-dark">{{petitions.description}}</p>
+                <p class="card-subtitle fs-6 ps-5 text-body-secondary">{{petitions.description}}</p>
               </div>
-              <p class="card-subtitle pt-2">{{petition.creatorEmail}}</p>
+              <p class="card-subtitle pt-2">{{petitions.creatorEmail}}</p>
               <div class="d-flex justify-content-end mt-2">
                 <app-like-btn></app-like-btn>
                 <app-dislike-btn></app-dislike-btn>
@@ -32,4 +32,3 @@
     </div>
   </div>
 </main>
-<app-foor></app-foor>

@@ -18,6 +18,9 @@ import { LikeBtnComponent } from './components/buttons/like-btn/like-btn.compone
 import { DislikeBtnComponent } from './components/buttons/dislike-btn/dislike-btn.component';
 import { SignInComponent } from './components/pages/sign-in/sign-in.component';
 import { SignUpComponent } from './components/pages/sign-up/sign-up.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+
+
 
 @NgModule({
     declarations: [
@@ -34,7 +37,8 @@ import { SignUpComponent } from './components/pages/sign-up/sign-up.component';
         LikeBtnComponent,
         DislikeBtnComponent,
         SignInComponent,
-        SignUpComponent
+        SignUpComponent,
+        UserProfileComponent,
     ],
     imports: [
         BrowserModule,
