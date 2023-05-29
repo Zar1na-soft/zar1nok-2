@@ -34,13 +34,13 @@ constructor(private formBuilder: FormBuilder,private router: Router, private aut
 
 buildForm(): void {
   this.petitionForm = this.formBuilder.group({
-    images: [null],
-    categoryName: [null],
-    routeCode: [null],
-    stationCode: [null],
+    // images: [null],
+    // categoryName: [null],
+    // routeCode: [null],
+    // stationCode: [null],
     description: ['', Validators.required],
-    longitude: [null],
-    latitude: [null]
+    // longitude: [null],
+    // latitude: [null]
   });
 }
 title = 'google-maps';
