@@ -25,13 +25,40 @@ export class UserProfileComponent implements OnInit {
       (response: any) => {
         if (response && Array.isArray(response.content)) {
           this.petitions = response.content.map((petition: Petition) => {
+            // Fetch latitude and longitude from the petition object
+            const latitude = petition.latitude;
+            const longitude = petition.longitude;
+
+            // Call method to convert latitude and longitude to address
+            this.convertLatLngToAddress(petition, latitude, longitude);
+
             return petition;
-          })
+          });
         }
       },
       (error: any) => {
         console.error('Failed to fetch user profile:', error);
       }
     );
+  }
+
+  convertLatLngToAddress(petition: Petition, latitude: number, longitude: number): void {
+    // Create Geocoder instance
+    const geocoder = new google.maps.Geocoder();
+
+    // Get address from latitude and longitude
+    const latLng = { lat: latitude, lng: longitude };
+    geocoder.geocode({ location: latLng }, (results, status) => {
+      if (status === google.maps.GeocoderStatus.OK) {
+        if (results && results.length > 0) {
+          const address = results[0].formatted_address;
+          petition.address = address; // Add address property to the Petition object
+        } else {
+          console.log('No results found');
+        }
+      } else {
+        console.log('Geocoder failed due to: ' + status);
+      }
+    });
   }
 }

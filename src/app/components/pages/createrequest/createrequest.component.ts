@@ -6,9 +6,10 @@ import { tap } from 'rxjs/internal/operators/tap';
 import { PetitionService } from 'src/app/shared/petition-service.service';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthservService } from 'src/app/shared/authserv.service';
+import { Authguard } from 'src/app/shared/authguard.guard';
 
 interface Petition {
-  images: [];
+  images: [] |null;
   description: string;
   title: string;
   address: string;
@@ -28,10 +29,11 @@ export class CreaterequestComponent implements OnInit {
   images:any;
   marker: google.maps.Marker;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthservService, private http: HttpClient) {}
+  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthservService, private http: HttpClient,private guard: Authguard) {}
 
   ngOnInit(): void {
     this.buildForm();
+    this.guard.canActivate;
 
     let loader = new Loader({
       apiKey: 'AIzaSyAkcsuctaRniGDhVi-sTEkyHMrfUoSQQNM', // Replace with your API key
@@ -109,7 +111,9 @@ export class CreaterequestComponent implements OnInit {
     formData.append('description', bodyData.description);
     formData.append('title', bodyData.title);
 
-    formData.set('images',this.images);
+    if (this.images) {
+      formData.set('images', this.images);
+    }
 
     formData.append('latitude', this.latitude.toString());
     formData.append('longitude', this.longitude.toString());

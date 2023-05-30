@@ -12,13 +12,10 @@ import { MainpageComponent } from './components/pages/mainpage/mainpage.componen
 import { OpenrequestComponent } from './components/pages/openrequest/openrequest.component';
 import { CreaterequestComponent } from './components/pages/createrequest/createrequest.component';
 import { ButtonCreateComponent } from './components/buttons/button-create/button-create.component';
-import { ReadyRequestComponent } from './components/pages/ready-request/ready-request.component';
-import { ButtonUploadImageComponent } from './components/buttons/button-upload-image/button-upload-image.component';
-import { LikeBtnComponent } from './components/buttons/like-btn/like-btn.component';
-import { DislikeBtnComponent } from './components/buttons/dislike-btn/dislike-btn.component';
 import { SignInComponent } from './components/pages/sign-in/sign-in.component';
 import { SignUpComponent } from './components/pages/sign-up/sign-up.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { AdminPageComponent } from './components/pages/admin-page/admin-page.component';
 
 
 
@@ -32,13 +29,10 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
         OpenrequestComponent,
         CreaterequestComponent,
         ButtonCreateComponent,
-        ReadyRequestComponent,
-        ButtonUploadImageComponent,
-        LikeBtnComponent,
-        DislikeBtnComponent,
         SignInComponent,
         SignUpComponent,
         UserProfileComponent,
+        AdminPageComponent,
     ],
     imports: [
         BrowserModule,

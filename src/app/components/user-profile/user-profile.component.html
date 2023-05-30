@@ -10,7 +10,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr  *ngFor="let petition of petitions">
+        <tr  *ngFor="let petition of petitions" >
             <th scope="row" style="width: 10%">{{ petition.petitionId}}</th>
             <td style="width: 40%"  >
                 <div>
@@ -20,7 +20,7 @@
                     <p class="mb-1">Like numbers: {{petition.likesNumber}}</p>
                 </div>
             </td>
-            <td><span class="text-warning d-inline">{{petition.status}}</span></td>
+            <td><span class="text-warning d-inline" [ngClass]="{ 'text-warning': petition.status === 'OPEN', 'text-danger': petition.status === 'CLOSED' }">{{petition.status}}</span></td>
             <td>{{ petition.createdAt | date: 'medium' }}</td>
         </tr>
         </tbody>

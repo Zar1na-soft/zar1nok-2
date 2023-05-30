@@ -1,6 +1,9 @@
 body{
   font-family: 'Droid Serif', serif;
   background: linear-gradient(109.67deg, rgba(0, 0, 0, 0.92) 43.39%, #526CAD 100%);
+  
+    overflow-x: hidden;
+    
 
 }
 main{

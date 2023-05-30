@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DislikeBtnComponent } from './dislike-btn.component';
+import { AdminPageComponent } from './admin-page.component';
 
-describe('DislikeBtnComponent', () => {
-  let component: DislikeBtnComponent;
-  let fixture: ComponentFixture<DislikeBtnComponent>;
+describe('AdminPageComponent', () => {
+  let component: AdminPageComponent;
+  let fixture: ComponentFixture<AdminPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DislikeBtnComponent ]
+      declarations: [ AdminPageComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DislikeBtnComponent);
+    fixture = TestBed.createComponent(AdminPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

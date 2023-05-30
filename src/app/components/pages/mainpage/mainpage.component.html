@@ -7,7 +7,7 @@
           <h3 class="fw-bold ms-3">Requests</h3>
         </div>
         <!-- card -->
-        <div *ngIf="petitions" class="card-container">
+        <div *ngIf="petitions" class="card-container container">
           <div
             class="card border border-end border-light-subtle rounded-5 bg-transparent my-4 p-2 "
             style="width: 80%"
@@ -23,7 +23,7 @@
                 <p class="card-subtitle fs-6 text-body-dark">{{ petition.status }}</p>
                 <p class="card-subtitle fs-6 ps-5 text-body-secondary">{{ petition.createdAt | date: 'medium' }}</p>
               </div>
-              <p class="card-subtitle">{{ petition.description }}</p>
+              <p class="card-subtitle">{{ petition.shortDescription}}</p>
               <div class="d-flex justify-content-end mt-2">
                 <button class="d-flex btn align-items-left" type="button" (click)="likePetition(petition)">
                   <p class="card-subtitle fs-6 text-body-secondary">Likes: {{ petition.likesNumber }}</p>

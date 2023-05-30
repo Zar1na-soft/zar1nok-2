@@ -6,6 +6,7 @@ import { Petition } from 'src/app/shared/petitions';
 import { Observable } from 'rxjs';
 import { Token } from '@angular/compiler';
 import * as jwt_decode from 'jwt-decode';
+import { Authguard } from 'src/app/shared/authguard.guard';
 
 
 
@@ -25,17 +26,14 @@ export class MainpageComponent implements OnInit {
 
 
   
-  constructor(private router: Router, private http: HttpClient) { 
-    this.isAuthenticated = !!localStorage.getItem('token');
-   
-
-   
+  constructor(private router: Router, private http: HttpClient,private authguard:Authguard) { 
+    this.isAuthenticated = !!localStorage.getItem('token'); 
    }
 
   title = 'google-maps';
   ngOnInit(): void {
     this.fetchPetitions();
-   
+    this.authguard.canActivate;
 
     let loader = new Loader ({
       apiKey: 'AIzaSyAkcsuctaRniGDhVi-sTEkyHMrfUoSQQNM',
@@ -49,23 +47,7 @@ export class MainpageComponent implements OnInit {
       });
   
       // Create Geocoder instance
-      const geocoder = new google.maps.Geocoder();
-  
-      // Get address from latitude and longitude
-      const latLng = { lat: 51.09555413778817, lng: 71.41688914019382 };
-      geocoder.geocode({ location: latLng }, (results, status) => {
-        if (status === google.maps.GeocoderStatus.OK) {
-          if (results && results.length > 0) {
-            const address = results[0].formatted_address;
-            console.log(address);
-            // Use the address as needed
-          } else {
-            console.log('No results found');
-          }
-        } else {
-          console.log('Geocoder failed due to: ' + status);
-        }
-      });
+      
     });
   }
 
@@ -78,10 +60,9 @@ export class MainpageComponent implements OnInit {
         if (response && Array.isArray(response.content)) {
           this.petitions = response.content.map((petition: Petition) => {
             petition.likedByThisUser = false;
-            // Fetch latitude and longitude from backend (replace with actual property names)
+            petition.shortDescription = this.generateShortDescription(petition.description);
             const latitude = petition.latitude;
             const longitude = petition.longitude;
-            // Call method to convert latitude and longitude to address
             this.convertLatLngToAddress(petition, latitude, longitude);
             return petition;
           });
@@ -114,10 +95,13 @@ export class MainpageComponent implements OnInit {
       }
     });
   }
-  
-  
-  
-
+  generateShortDescription(description: string, maxLength: number = 75): string {
+    if (description.length <= maxLength) {
+      return description;
+    } else {
+      return description.substr(0, maxLength) + '...';
+    }
+  }
   likePetition(petition: Petition){
     if(!this.isAuthenticated){
       return;
