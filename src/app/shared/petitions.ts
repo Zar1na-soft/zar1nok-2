@@ -17,5 +17,6 @@ export interface Petition {
   createdAt: string ;
   address: string;
   shortDescription?: string;
+  
   }
 

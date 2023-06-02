@@ -34,7 +34,6 @@ export class MainpageComponent implements OnInit {
   ngOnInit(): void {
     this.fetchPetitions();
     this.authguard.canActivate;
-
     let loader = new Loader ({
       apiKey: 'AIzaSyAkcsuctaRniGDhVi-sTEkyHMrfUoSQQNM',
       libraries: ['places']
@@ -81,11 +80,17 @@ export class MainpageComponent implements OnInit {
     const geocoder = new google.maps.Geocoder();
   
     // Get address from latitude and longitude
+    console.log('Latitude:', latitude);
+    console.log('Longitude:', longitude);
+  
     const latLng = { lat: latitude, lng: longitude };
+    console.log('LatLng:', latLng);
+  
     geocoder.geocode({ location: latLng }, (results, status) => {
       if (status === google.maps.GeocoderStatus.OK) {
         if (results && results.length > 0) {
           const address = results[0].formatted_address;
+          console.log('Address:', address);
           petition.address = address; // Add address property to the Petition object
         } else {
           console.log('No results found');
@@ -95,6 +100,7 @@ export class MainpageComponent implements OnInit {
       }
     });
   }
+  
   generateShortDescription(description: string, maxLength: number = 75): string {
     if (description.length <= maxLength) {
       return description;
@@ -131,7 +137,7 @@ export class MainpageComponent implements OnInit {
 
 
 viewRequestDetails(petition: Petition) {
-  this.router.navigate(['/open_request', petition.petitionId]);
+  this.router.navigate(['/petitions', petition.petitionId]);
 }
 
 onTableDataChange(event:any){

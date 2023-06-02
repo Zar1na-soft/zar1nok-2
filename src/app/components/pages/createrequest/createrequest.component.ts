@@ -3,9 +3,7 @@ import { Router } from '@angular/router';
 import { Loader } from '@googlemaps/js-api-loader';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { tap } from 'rxjs/internal/operators/tap';
-import { PetitionService } from 'src/app/shared/petition-service.service';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthservService } from 'src/app/shared/authserv.service';
 import { Authguard } from 'src/app/shared/authguard.guard';
 
 interface Petition {
@@ -29,7 +27,7 @@ export class CreaterequestComponent implements OnInit {
   images:any;
   marker: google.maps.Marker;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthservService, private http: HttpClient,private guard: Authguard) {}
+  constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient,private guard: Authguard) {}
 
   ngOnInit(): void {
     this.buildForm();

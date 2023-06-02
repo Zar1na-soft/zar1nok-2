@@ -42,7 +42,7 @@ const routes: Routes = [
   },
 
   { 
-    path: 'open_request/:id',
+    path: 'petitions/:petitionId',
     component: OpenrequestComponent
 
   },
